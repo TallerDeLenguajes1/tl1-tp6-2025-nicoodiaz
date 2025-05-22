@@ -1,4 +1,5 @@
 ﻿using System.Net.WebSockets;
+using System.Timers;
 
 int a;
 int b;
@@ -110,4 +111,36 @@ void Multiplicar(double a, double b)
 void Dividir(double a, double b)
 {
     Console.WriteLine($"La suma entre {a} y {b} es {a / b}");
+}
+double numACalcular;
+Console.WriteLine("Ingrese un numero: ");
+var pedirNumero = Console.ReadLine();
+bool resultado2 = double.TryParse(pedirNumero, out numACalcular);
+
+if (resultado2)
+{
+    Console.WriteLine($"El valor absoluto de {numACalcular} es {Math.Abs(numACalcular)}");
+    Console.WriteLine($"El cuadrado de {numACalcular} es {Math.Pow(numACalcular, 2)}");
+    Console.WriteLine($"La raiz cuadrada de {numACalcular} es {Math.Sqrt(Math.Abs(numACalcular))}");
+    Console.WriteLine($"El seno de {numACalcular} es {Math.Sin(numACalcular)}");
+    Console.WriteLine($"El coseno de {numACalcular} es {Math.Cos(numACalcular)}");
+    Console.WriteLine($"La parte entera de {numACalcular} es {(int)numACalcular}");
+}
+else
+{
+    Console.WriteLine("No ingresaste un numero, intenta de nuevo");
+}
+double segundoNum;
+Console.WriteLine("Ingrese otro numero:");
+var pedirOtroNum = Console.ReadLine();
+bool resultado2doNum = double.TryParse(pedirOtroNum, out segundoNum);
+
+if (resultado2doNum && resultado2)
+{
+    Console.WriteLine($"El maximo entre {numACalcular} y {segundoNum} es {Math.Max(numACalcular, segundoNum)}");
+    Console.WriteLine($"El minimo entre {numACalcular} y {segundoNum} es {Math.Min(numACalcular, segundoNum)}");
+}
+else
+{
+    Console.WriteLine("No ingreso un dato valido");
 }
