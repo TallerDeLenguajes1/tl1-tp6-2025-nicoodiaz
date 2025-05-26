@@ -24,3 +24,51 @@ Ejemplo: @"C:\Usuarios\Nombre"
 
 - **$** sirve para insertar variables dentro del string de una forma mas  fácil, sin tener que usar `+`.
 Ejemplo: string nombre = "Juan"; ____ Console.WriteLine($"Hola, {nombre}");
+
+# Ejercicio 5 - Respuestas
+
+## ¿Qué son y cómo funcionan las expresiones regulares?
+
+Las expresiones regulares, son como una especie de "patrón" que se usa para **buscar o verificar texto**
+Por ejemplo, se pueden  buscar cosas como:
+- Si un texto solo contiene numeros.
+- Si una palabra empieza con mayuscula.
+- Si un email tiene el formato correcto.
+
+## ¿Funcionan unicamente en C#?
+
+No, tambien funionan en otros lenguajes como:
+- Python.
+- Java.
+- JavaScript.
+- PHP.
+
+## ¿En qué casos le parecen utiles? Enuncie al menos 3.
+
+Se pueden utilizar por ejemplo para poder verificar si un usuario escribió bien su correo, para poder validar una contraseña o para buscar un dato especifico en una cadena de texto muy larga.
+
+## ¿Cómo se hace uso de estas en C#?
+
+Se debe usar la clase **Regex** que viene del namespace **System.Text.RegularExpressions**. Un ejemplo:
+
+```csharp
+using System;
+using System.Text.RegularExpressions;
+
+class Program
+{
+    static void Main()
+    {
+        string texto = "Mi email es usuario@example.com";
+        string patron = @"\w+@\w+\.\w+"; // patrón para un email
+
+        if (Regex.IsMatch(texto, patron))
+        {
+            Console.WriteLine("Se encontró un email en el texto.");
+        }
+        else
+        {
+            Console.WriteLine("No se encontró ningún email.");
+        }
+    }
+}
